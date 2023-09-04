@@ -1,5 +1,4 @@
 <?php
-
 include 'components/connect.php';
 
 session_start();
@@ -12,7 +11,6 @@ if(isset($_SESSION['user_id'])){
 };
 
 if(isset($_POST['submit'])){
-
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $number = $_POST['number'];
@@ -41,13 +39,48 @@ if(isset($_POST['submit'])){
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
 
-         $message[] = 'order placed successfully!';
+         // Include the Razorpay PHP SDK
+         require 'C:\xampp\htdocs\food website backend\razorpay-php-master\Razorpay.php';
+
+         // Initialize Razorpay with your API key and secret key
+         $razorpayApiKey = 'rzp_test_InqF9HsZIjNaZV';
+         $razorpaySecretKey = 'PzvrPMRlcQSIeFSvKt4yMPoa';
+         $razorpay = new Razorpay\Api\Api($razorpayApiKey, $razorpaySecretKey);
+
+         // Create a Razorpay order 
+         $orderData = [
+             'amount' => $total_price * 100,
+             'currency' => 'INR',
+             'receipt' => 'order_' . time(),
+         ];
+
+         $razorpayOrder = $razorpay->order->create($orderData);
+         $razorpayOrderId = $razorpayOrder->id;
+
+         // Generate a Razorpay payment button
+         echo "<form action='verify_payment.php' method='POST' id='razorpay-form'>
+             <script src='https://checkout.razorpay.com/v1/checkout.js'
+                 data-key='$razorpayApiKey'
+                 data-amount='$total_price * 100'
+                 data-currency='INR'
+                 data-order_id='$razorpayOrderId'
+                 data-buttontext='Pay with Razorpay'
+                 data-name='Your Store Name'
+                 data-description='Payment for Order #$razorpayOrderId'
+                 data-image='your_logo.png'
+                 data-prefill.name='$name'
+                 data-prefill.email='$email'
+                 data-prefill.contact='$number'
+                 data-theme.color='#F37254'></script>
+             <input type='hidden' name='razorpay_order_id' value='$razorpayOrderId'>
+             <input type='hidden' name='total_price' value='$total_price'>
+             <input type='hidden' name='submit' value='place_order'>
+         </form>";
+         exit();
       }
-      
    }else{
       $message[] = 'your cart is empty';
    }
-
 }
 
 ?>
@@ -67,6 +100,9 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/style.css">
 
 </head>
+<style>
+   .razorpay-payment-button{display: none;}
+</style>
 <body>
    
 <!-- header section starts  -->
@@ -80,7 +116,7 @@ if(isset($_POST['submit'])){
 
 <section class="checkout">
 
-   <h1 class="title">order summary</h1>
+   <h1 class="title">orderrr summary</h1>
 
 <form action="" method="post">
 
@@ -126,17 +162,39 @@ if(isset($_POST['submit'])){
       <a href="update_address.php" class="btn">update address</a>
       <select name="method" class="box" required>
          <option value="" disabled selected>select payment method --</option>
-         <option value="cash on delivery">cash on delivery</option>
-         <option value="credit card">credit card</option>
-         <option value="paytm">paytm</option>
-         <option value="paypal">paypal</option>
+         <option value="cash on delivery">cash on delivery(unavilable)</option>
+         <option value="Pay online">Pay online</option>
       </select>
       <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
+      
    </div>
 
 </form>
    
 </section>
+
+<script>
+   window.addEventListener("load", function() {
+      const paymentMethodSelect = document.querySelector("select[name='method']");
+      const razorpayButton = document.querySelector(".razorpay-payment-button"); // Select by class name
+
+      // Function to click the Razorpay button
+      function clickRazorpayButton() {
+         if (razorpayButton) {
+            razorpayButton.click(); // Trigger a click event
+         }
+      }
+
+      // Automatically click the Razorpay button after a short delay (adjust as needed)
+      setTimeout(clickRazorpayButton, 1000); // 1000 milliseconds (1 second) delay
+
+      paymentMethodSelect.addEventListener("change", function() {
+         if (this.value === "Pay online") {
+            clickRazorpayButton(); // Click the button when "Pay online" is selected
+         }
+      });
+   });
+</script>
 
 
 

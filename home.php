@@ -4,9 +4,9 @@ include 'components/connect.php';
 
 session_start();
 
-if(isset($_SESSION['user_id'])){
+if (isset($_SESSION['user_id'])) {
    $user_id = $_SESSION['user_id'];
-}else{
+} else {
    $user_id = '';
 };
 
@@ -16,6 +16,7 @@ include 'components/add_cart.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,135 +32,136 @@ include 'components/add_cart.php';
    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
 
-<?php include 'components/user_header.php'; ?>
+   <?php include 'components/user_header.php'; ?>
 
 
 
-<section class="hero">
+   <section class="hero">
 
-   <div class="swiper hero-slider">
+      <div class="swiper hero-slider">
 
-      <div class="swiper-wrapper">
+         <div class="swiper-wrapper">
 
-         <div class="swiper-slide slide">
-            <div class="content">
-               <span>order online</span>
-               <h3>delicious pizza</h3>
-               <a href="menu.html" class="btn">see menus</a>
+            <div class="swiper-slide slide">
+               <div class="content">
+                  <span>order online</span>
+                  <h3>delicious pizza</h3>
+                  <a href="menu.html" class="btn">see menus</a>
+               </div>
+               <div class="image">
+                  <img src="images/home-img-1.pn" alt="">
+               </div>
             </div>
-            <div class="image">
-               <img src="images/home-img-1.png" alt="">
+
+            <div class="swiper-slide slide">
+               <div class="content">
+                  <span>order online</span>
+                  <h3>chezzy hamburger</h3>
+                  <a href="menu.html" class="btn">see menus</a>
+               </div>
+               <div class="image">
+                  <img src="images/home-img-2.pn" alt="">
+               </div>
             </div>
+
+            <div class="swiper-slide slide">
+               <div class="content">
+                  <span>order online</span>
+                  <h3>rosted chicken</h3>
+                  <a href="menu.html" class="btn">see menus</a>
+               </div>
+               <div class="image">
+                  <img src="images/home-img-3.pn" alt="">
+               </div>
+            </div>
+
          </div>
 
-         <div class="swiper-slide slide">
-            <div class="content">
-               <span>order online</span>
-               <h3>chezzy hamburger</h3>
-               <a href="menu.html" class="btn">see menus</a>
-            </div>
-            <div class="image">
-               <img src="images/home-img-2.png" alt="">
-            </div>
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="content">
-               <span>order online</span>
-               <h3>rosted chicken</h3>
-               <a href="menu.html" class="btn">see menus</a>
-            </div>
-            <div class="image">
-               <img src="images/home-img-3.png" alt="">
-            </div>
-         </div>
+         <div class="swiper-pagination"></div>
 
       </div>
 
-      <div class="swiper-pagination"></div>
+   </section>
 
-   </div>
+   <section class="category">
 
-</section>
+      <h1 class="title">Category</h1>
 
-<section class="category">
+      <div class="box-container">
 
-   <h1 class="title">food category</h1>
+         <a href="category.php?category=Electronic components" class="box">
+            <img src="images/cat-1.pn" alt="">
+            <h3>Electronic components</h3>
+         </a>
 
-   <div class="box-container">
+         <a href="category.php?category=Drone Parts" class="box">
+            <img src="images/cat-2.pn" alt="">
+            <h3>Drone Parts</h3>
+         </a>
 
-      <a href="category.php?category=fast food" class="box">
-         <img src="images/cat-1.png" alt="">
-         <h3>fast food</h3>
-      </a>
+         <a href="category.php?category=E-Bike parts" class="box">
+            <img src="images/cat-3.pn" alt="">
+            <h3>E-Bike parts</h3>
+         </a>
 
-      <a href="category.php?category=main dish" class="box">
-         <img src="images/cat-2.png" alt="">
-         <h3>main dishes</h3>
-      </a>
+         <a href="category.php?category=3D Printers part" class="box">
+            <img src="images/cat-4.pn" alt="">
+            <h3>3D Printers part</h3>
+         </a>
 
-      <a href="category.php?category=drinks" class="box">
-         <img src="images/cat-3.png" alt="">
-         <h3>drinks</h3>
-      </a>
+      </div>
 
-      <a href="category.php?category=desserts" class="box">
-         <img src="images/cat-4.png" alt="">
-         <h3>desserts</h3>
-      </a>
-
-   </div>
-
-</section>
+   </section>
 
 
 
 
-<section class="products">
+   <section class="products">
 
-   <h1 class="title">latest dishes</h1>
+      <h1 class="title">latest dishes</h1>
 
-   <div class="box-container">
+      <div class="box-container">
 
-      <?php
+         <?php
          $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6");
          $select_products->execute();
-         if($select_products->rowCount() > 0){
-            while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
-      ?>
-      <form action="" method="post" class="box">
-         <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
-         <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
-         <input type="hidden" name="price" value="<?= $fetch_products['price']; ?>">
-         <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
-         <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
-         <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-         <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-         <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
-         <div class="name"><?= $fetch_products['name']; ?></div>
-         <div class="flex">
-            <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
-            <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
-         </div>
-      </form>
-      <?php
+         if ($select_products->rowCount() > 0) {
+            while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+         ?>
+               <form action="" method="post" class="box">
+                  <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
+                  <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
+                  <input type="hidden" name="price" value="<?= $fetch_products['price']; ?>">
+                  <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
+                  <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
+                  <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                  <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+                  <div class="content flex" style="overflow-y:auto; flex-direction:column;justify-content: space-around;height: 200px;">
+                     <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
+                     <div class="name"><?= $fetch_products['name']; ?></div>
+                     <div class="flex">
+                        <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+                        <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                     </div>
+                  </div>
+               </form>
+         <?php
             }
-         }else{
+         } else {
             echo '<p class="empty">no products added yet!</p>';
          }
-      ?>
+         ?>
 
-   </div>
+      </div>
 
-   <div class="more-btn">
-      <a href="menu.html" class="btn">veiw all</a>
-   </div>
+      <div class="more-btn">
+         <a href="menu.html" class="btn">veiw all</a>
+      </div>
 
-</section>
-
-
+   </section>
 
 
 
@@ -176,27 +178,28 @@ include 'components/add_cart.php';
 
 
 
-<?php include 'components/footer.php'; ?>
 
 
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+   <?php include 'components/footer.php'; ?>
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
 
-<script>
+   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-var swiper = new Swiper(".hero-slider", {
-   loop:true,
-   grabCursor: true,
-   effect: "flip",
-   pagination: {
-      el: ".swiper-pagination",
-      clickable:true,
-   },
-});
+   <!-- custom js file link  -->
+   <script src="js/script.js"></script>
 
-</script>
+   <script>
+      var swiper = new Swiper(".hero-slider", {
+         loop: true,
+         grabCursor: true,
+         effect: "flip",
+         pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+         },
+      });
+   </script>
 
 </body>
+
 </html>

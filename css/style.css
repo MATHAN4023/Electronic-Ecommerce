@@ -29,10 +29,15 @@
 
 ::-webkit-scrollbar-track{
    background-color: transparent;
+
 }
 
 ::-webkit-scrollbar-thumb{
-   background-color: var(--yellow);
+   /* background-color: var(--yellow); */
+   background-color: #b8b8b86a;
+   border-radius: 10px;
+   width: 1px;
+
 }
 
 html{
@@ -318,7 +323,6 @@ section{
    color:var(--black);
    text-transform: capitalize;
 }
-
 .category .box-container .box:hover{
    background-color: var(--black);
 }

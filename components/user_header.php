@@ -24,7 +24,7 @@ if (isset($message)) {
       </div>
 
       <nav class="navbar" style="text-transform:capitalize">
-         <a href="home.php">home</a>
+         <a href="index.php">home</a>
          <a href="about.php">about</a>
          <a href="menu.php">menu</a>
          <a href="orders.php">orders</a>

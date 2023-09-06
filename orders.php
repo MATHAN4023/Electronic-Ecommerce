@@ -34,9 +34,9 @@ if(isset($_SESSION['user_id'])){
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
 
-<div class="heading">
+<div class="heading" style="min-height: 0rem;">
    <h3>orders</h3>
-   <p><a href="html.php">home</a> <span> / orders</span></p>
+   <p><a href="home.php">home</a> <span> / orders</span></p>
 </div>
 
 <section class="orders">
@@ -54,7 +54,7 @@ if(isset($_SESSION['user_id'])){
          if($select_orders->rowCount() > 0){
             while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
-   <div class="box">
+   <div class="box" style="height:400px;overflow-y:auto">
       <p>placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
       <p>name : <span><?= $fetch_orders['name']; ?></span></p>
       <p>email : <span><?= $fetch_orders['email']; ?></span></p>

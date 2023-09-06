@@ -62,7 +62,7 @@ if(isset($_GET['delete'])){
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
-   <div class="box">
+   <div class="box" style="height:500px;overflow-y:scroll">
       <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>
       <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
       <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
@@ -98,6 +98,7 @@ if(isset($_GET['delete'])){
 
 <!-- placed orders section ends -->
 
+<?php include '../components/footer.php' ?>
 
 
 

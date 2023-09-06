@@ -60,7 +60,7 @@ if(isset($_POST['send'])){
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
 
-<div class="heading">
+<div class="heading" style="min-height: 0rem;">
    <h3>contact us</h3>
    <p><a href="home.php">home</a> <span> / contact</span></p>
 </div>
@@ -72,7 +72,7 @@ if(isset($_POST['send'])){
    <div class="row">
 
       <div class="image">
-         <img src="images/contact-img.svg" alt="">
+         <img src="./project images/antena.webp" alt="">
       </div>
 
       <form action="" method="post">
@@ -81,7 +81,13 @@ if(isset($_POST['send'])){
          <input type="number" name="number" min="0" max="9999999999" class="box" placeholder="enter your number" required maxlength="10">
          <input type="email" name="email" maxlength="50" class="box" placeholder="enter your email" required>
          <textarea name="msg" class="box" required placeholder="enter your message" maxlength="500" cols="30" rows="10"></textarea>
-         <input type="submit" value="send message" name="send" class="btn">
+         <input type="submit" value="send message" name="send" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">
       </form>
 
    </div>

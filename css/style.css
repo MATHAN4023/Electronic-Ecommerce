@@ -70,7 +70,7 @@ section{
    gap:1rem;
    flex-flow: column;
    background-color: var(--black);
-   min-height: 20rem;
+   /* min-height: 20rem; */
 }
    
 .heading h3{
@@ -103,7 +103,6 @@ section{
    text-transform: capitalize;
    transition: .2s linear;
 }
-
 .btn{
    background-color: var(--yellow);
    color:var(--black);
@@ -323,7 +322,7 @@ section{
    color:var(--black);
    text-transform: capitalize;
 }
-.category .box-container .box:hover{
+/* .category .box-container .box:hover{
    background-color: var(--black);
 }
 
@@ -333,7 +332,7 @@ section{
 
 .category .box-container .box:hover h3{
    color:var(--white);
-}
+} */
 
 .products .box-container{
    display: grid;
@@ -373,11 +372,11 @@ section{
    text-align: center;
 }
 
-.products .box-container .box .fa-eye:hover,
+/* .products .box-container .box .fa-eye:hover,
 .products .box-container .box .fa-shopping-cart:hover{
    background-color: var(--black);
    color:var(--white);
-}
+} */
 
 .products .box-container .box .fa-eye{
    left: -10rem;
@@ -415,7 +414,7 @@ section{
    display: flex;
    align-items: center;
    gap:1rem;
-   margin-top: 1.5rem;
+   /* margin-top: 1.5rem; */
 }
 
 .products .box-container .box .flex .price{
@@ -929,8 +928,17 @@ section{
 
 
 
+/* footer */
 
+.mathan{
+   padding: 10rem;
+   background-color: red;
+   color: white;
+}
 
+.hello{
+   color: white;
+}
 
 
 

@@ -35,7 +35,7 @@ if(isset($_SESSION['user_id'])){
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
 
-<div class="heading">
+<div class="heading" style="min-height: 0rem;">
    <h3>about us</h3>
    <p><a href="home.php">home</a> <span> / about</span></p>
 </div>
@@ -47,13 +47,19 @@ if(isset($_SESSION['user_id'])){
    <div class="row">
 
       <div class="image">
-         <img src="images/about-img.svg" alt="">
+         <img src="./project images/smart-robot.webp" alt="">
       </div>
 
       <div class="content">
          <h3>why choose us?</h3>
          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, neque debitis incidunt qui ipsum sed doloremque a molestiae in veritatis ullam similique sunt aliquam dolores dolore? Quasi atque debitis nobis!</p>
-         <a href="menu.html" class="btn">our menu</a>
+         <a href="menu.html" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">our menu</a>
       </div>
 
    </div>
@@ -82,11 +88,11 @@ if(isset($_SESSION['user_id'])){
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
       </div>
 
-      <div class="box">
+      <!-- <div class="box">
          <img src="images/step-3.png" alt="">
          <h3>enjoy food</h3>
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, dolorem.</p>
-      </div>
+      </div> -->
 
    </div>
 
@@ -96,7 +102,7 @@ if(isset($_SESSION['user_id'])){
 
 <!-- reviews section starts  -->
 
-<section class="reviews">
+<!-- <section class="reviews">
 
    <h1 class="title">customer's reivews</h1>
 
@@ -188,7 +194,7 @@ if(isset($_SESSION['user_id'])){
 
    </div>
 
-</section>
+</section> -->
 
 <!-- reviews section ends -->
 

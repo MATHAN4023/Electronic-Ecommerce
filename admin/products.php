@@ -16,7 +16,7 @@ if (isset($_POST['add_product'])) {
    $price = $_POST['price'];
    $price = filter_var($price, FILTER_SANITIZE_STRING);
    $category = $_POST['category'];
-   echo $category;
+   // echo $category;
    $category = filter_var($category, FILTER_SANITIZE_STRING);
 
    $image = $_FILES['image']['name'];

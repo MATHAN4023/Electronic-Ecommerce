@@ -31,6 +31,7 @@ include 'components/add_cart.php';
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+
 </head>
 
 <body>
@@ -47,34 +48,52 @@ include 'components/add_cart.php';
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>order online</span>
-                  <h3>delicious pizza</h3>
-                  <a href="menu.html" class="btn">see menus</a>
+                  <span>order now</span>
+                  <h3>Electronic components</h3>
+                  <a href="menu.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">see menus</a>
                </div>
                <div class="image">
-                  <img src="images/home-img-1.pn" alt="">
+                  <img src="./project images/Raspberry.webp" alt="">
                </div>
             </div>
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>order online</span>
-                  <h3>chezzy hamburger</h3>
-                  <a href="menu.html" class="btn">see menus</a>
+                  <span>order now</span>
+                  <h3>Drone Parts</h3>
+                  <a href="menu.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">see menus</a>
                </div>
                <div class="image">
-                  <img src="images/home-img-2.pn" alt="">
+                  <img src="./project images/drone.png" alt="">
                </div>
             </div>
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>order online</span>
-                  <h3>rosted chicken</h3>
-                  <a href="menu.html" class="btn">see menus</a>
+                  <span>order now</span>
+                  <h3>Motors</h3>
+                  <a href="menu.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">see menus</a>
                </div>
                <div class="image">
-                  <img src="images/home-img-3.pn" alt="">
+                  <img src="./project images/Motor.webp" alt="">
                </div>
             </div>
 
@@ -93,22 +112,22 @@ include 'components/add_cart.php';
       <div class="box-container">
 
          <a href="category.php?category=Electronic components" class="box">
-            <img src="images/cat-1.pn" alt="">
+            <img src="./project images/Resistor.webp" alt="">
             <h3>Electronic components</h3>
          </a>
 
          <a href="category.php?category=Drone Parts" class="box">
-            <img src="images/cat-2.pn" alt="">
+            <img src="./project images/Drone-Frame.webp" alt="">
             <h3>Drone Parts</h3>
          </a>
 
          <a href="category.php?category=E-Bike parts" class="box">
-            <img src="images/cat-3.pn" alt="">
+            <img src="./project images/e-bike.webp" alt="">
             <h3>E-Bike parts</h3>
          </a>
 
          <a href="category.php?category=3D Printers part" class="box">
-            <img src="images/cat-4.pn" alt="">
+            <img src="./project images/3d printers.webp" alt="">
             <h3>3D Printers part</h3>
          </a>
 
@@ -121,7 +140,7 @@ include 'components/add_cart.php';
 
    <section class="products">
 
-      <h1 class="title">latest dishes</h1>
+      <h1 class="title">Recent Updates</h1>
 
       <div class="box-container">
 
@@ -139,12 +158,14 @@ include 'components/add_cart.php';
                   <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
                   <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                   <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-                  <div class="content flex" style="overflow-y:auto; flex-direction:column;justify-content: space-around;height: 200px;">
-                     <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
-                     <div class="name"><?= $fetch_products['name']; ?></div>
-                     <div class="flex">
-                        <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
-                        <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                  <div class="content flex" style="overflow-y:auto;">
+                     <div class="" style="display: flex;flex-direction: column;justify-content: space-between;height: 200px;width: 100%;">
+                        <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat m-4"><?= $fetch_products['category']; ?></a>
+                        <div class="name"><?= $fetch_products['name']; ?></div>
+                        <div class="flex">
+                           <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+                           <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+                        </div>
                      </div>
                   </div>
                </form>
@@ -158,7 +179,13 @@ include 'components/add_cart.php';
       </div>
 
       <div class="more-btn">
-         <a href="menu.html" class="btn">veiw all</a>
+         <a href="menu.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">veiw all</a>
       </div>
 
    </section>

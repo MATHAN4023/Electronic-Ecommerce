@@ -14,10 +14,10 @@ if(isset($message)){
 <header class="header">
 
    <section class="flex">
+      <img src="./logo.avif" alt="logo">
+      <a href="home.php" class="logo">E-Gagets eh</a>
 
-      <a href="home.php" class="logo">E-Gagets</a>
-
-      <nav class="navbar">
+      <nav class="navbar" style="text-transform:capitalize">
          <a href="home.php">home</a>
          <a href="about.php">about</a>
          <a href="menu.php">menu</a>
@@ -46,7 +46,13 @@ if(isset($message)){
          ?>
          <p class="name"><?= $fetch_profile['name']; ?></p>
          <div class="flex">
-            <a href="profile.php" class="btn">profile</a>
+            <a href="profile.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">profile</a>
             <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
          </div>
          <p class="account">

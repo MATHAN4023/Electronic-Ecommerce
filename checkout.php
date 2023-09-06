@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
          $delete_cart->execute([$user_id]);
 
          // Include the Razorpay PHP SDK
-         require 'C:\xampp\htdocs\dashboard\robu clone\Electronic-Ecommerce\razorpay-php-master\razorpay-php-master\Razorpay.php';
+         require 'C:\xampp\htdocs\robu clone\Electronic-Ecommerce\razorpay-php-master\razorpay-php-master\Razorpay.php';
 
          // Initialize Razorpay with your API key and secret key
          $razorpayApiKey = 'rzp_test_InqF9HsZIjNaZV';
@@ -204,12 +204,6 @@ if (isset($_POST['submit'])) {
 
 
       </form>
-      <h2>This is a heading</h2>
-
-      <p>This is a paragraph.</p>
-      <p>This is another paragraph.</p>
-
-      <button>Click me</button>
    </section>
 
    <script>

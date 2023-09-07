@@ -18,7 +18,7 @@ if (isset($message)) {
             <img src="https://images-platform.99static.com//9J188KNa1yorbE-x_YGpAC_6k9g=/0x0:969x969/fit-in/500x500/99designs-contests-attachments/101/101759/attachment_101759249" alt="" height="100px" width="100px" style="width: 100%;height: 180%;object-fit: cover;margin-top:-20%">
          </div>
          <div class="d-flex" style="justify-content: center; align-items: center;">
-            <a href="home.php" class="logo">E-Gadgets</a>
+            <a href="index.php" class="logo">E-Gadgets</a>
          </div>
 
       </div>
@@ -69,7 +69,21 @@ if (isset($message)) {
          } else {
          ?>
             <p class="name">please login first!</p>
-            <a href="login.php" class="btn">login</a>
+
+            <a href="login.php" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">User login</a>
+         <a href="../../E-Gadgets/admin/admin_login.php" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   ">Admin Login</a>
          <?php
          }
          ?>

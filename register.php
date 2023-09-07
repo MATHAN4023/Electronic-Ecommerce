@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
          $row = $select_user->fetch(PDO::FETCH_ASSOC);
          if($select_user->rowCount() > 0){
             $_SESSION['user_id'] = $row['id'];
-            header('location:home.php');
+            header('location:index.php');
          }
       }
    }
@@ -55,13 +55,16 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>E-Gadgets</title>
+
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="./project images/logo.png" type="image/x-icon">
+   <link rel="shortcut icon" href="./project images/logo.png" type="image/x-icon">
 
 </head>
 <body>
@@ -79,7 +82,13 @@ if(isset($_POST['submit'])){
       <input type="number" name="number" required placeholder="enter your number" class="box" min="0" max="9999999999" maxlength="10">
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="register now" name="submit" class="btn">
+      <input type="submit" value="register now" name="submit" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>
 

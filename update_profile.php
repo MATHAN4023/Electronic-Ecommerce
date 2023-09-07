@@ -70,6 +70,7 @@ if(isset($_POST['submit'])){
             $update_pass = $conn->prepare("UPDATE `users` SET password = ? WHERE id = ?");
             $update_pass->execute([$confirm_pass, $user_id]);
             $message[] = 'password updated successfully!';
+            header('location:checkout.php');
          }else{
             $message[] = 'please enter a new password!';
          }
@@ -86,13 +87,16 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update profile</title>
+   <title>E-Gadgets</title>
+
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="./project images/logo.png" type="image/x-icon">
+   <link rel="shortcut icon" href="./project images/logo.png" type="image/x-icon">
 
 </head>
 <body>
@@ -111,7 +115,13 @@ if(isset($_POST['submit'])){
       <input type="password" name="old_pass" placeholder="enter your old password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="new_pass" placeholder="enter your new password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="confirm_pass" placeholder="confirm your new password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="update now" name="submit" class="btn">
+      <input type="submit" value="update now" name="submit" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">
    </form>
 
 </section>

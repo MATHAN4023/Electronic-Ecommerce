@@ -20,6 +20,7 @@ if(isset($_POST['submit'])){
    $update_address->execute([$address, $user_id]);
 
    $message[] = 'address saved!';
+   header('location:checkout.php');
 
 }
 
@@ -31,13 +32,16 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update address</title>
+   <title>E-Gadgets</title>
+
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="./project images/logo.png" type="image/x-icon">
+   <link rel="shortcut icon" href="./project images/logo.png" type="image/x-icon">
 
 </head>
 <body>
@@ -56,7 +60,13 @@ if(isset($_POST['submit'])){
       <input type="text" class="box" placeholder="state name" required maxlength="50" name="state">
       <input type="text" class="box" placeholder="country name" required maxlength="50" name="country">
       <input type="number" class="box" placeholder="pin code" required max="999999" min="0" maxlength="6" name="pin_code">
-      <input type="submit" value="save address" name="submit" class="btn">
+      <input type="submit" value="save address" name="submit" class="btn" style="margin-top: 1rem;
+   display: inline-block;
+   font-size: 2rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;background-color:yellow;color:black">
    </form>
 
 </section>
